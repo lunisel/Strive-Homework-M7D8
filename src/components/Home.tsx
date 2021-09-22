@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { Card, Col, Form, Row } from "react-bootstrap";
+import { Card, Col, Container, Form, Row } from "react-bootstrap";
 import { RouteComponentProps } from "react-router";
 
 type MixedProps = RouteComponentProps;
@@ -16,11 +16,11 @@ interface Song {
   };
   album: {
     title: string;
-    cover: string
+    cover: string;
   };
 }
 
-const Home = ({ location }: MixedProps) => {
+const Home = ({ location, history }: MixedProps) => {
   const [songs, setSongs] = useState<Song[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [query, setQuery] = useState("");
@@ -73,10 +73,8 @@ const Home = ({ location }: MixedProps) => {
   }, [query]);
 
   return (
-    <div className="big-cont">
-      <h1 className="main-title" onClick={() => fetchData(null, "first")}>
-        Search for New Music
-      </h1>
+    <Container className="big-cont">
+      
 
       <div className="home-cont">
         <Form.Control
@@ -91,7 +89,10 @@ const Home = ({ location }: MixedProps) => {
         <Row className="row-cont">
           {songs?.map((song) => (
             <Col xs={12} md={3} lg={2}>
-              <Card className="card-cont">
+              <Card
+                className="card-cont"
+                onClick={() => history.push("/" + song.id)}
+              >
                 <Card.Body>
                   <img
                     src={song.album.cover}
@@ -108,7 +109,7 @@ const Home = ({ location }: MixedProps) => {
           ))}
         </Row>
       </div>
-    </div>
+    </Container>
   );
 };
 

@@ -3,7 +3,16 @@
   min-height: 100vh;
   background-color: #c4b1ae;
 }
-.big-cont {
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.big-cont.container {
   display: flex;
   flex-direction: column;
 }
@@ -19,15 +28,42 @@
   font-size: 3.5rem;
 }
 
+h1.main-title {
+  margin: 0;
+  font-size: 6vw;
+}
+
 .search-bar.form-control {
   width: 60%;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .row-cont.row {
   height: 25rem;
+  margin: 0;
+  position: relative;
 }
 
 .card-cont.card {
   height: 100%;
   width: 100%;
+}
+
+.col-lg-2.col-md-3.col-12 {
+  height: 23vh;
+  margin-bottom: 2rem;
+}
+
+.card-title.h5 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.mb-2.text-muted.card-subtitle.h6 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
